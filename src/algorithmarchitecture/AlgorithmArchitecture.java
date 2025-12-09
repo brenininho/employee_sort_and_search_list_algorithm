@@ -46,30 +46,36 @@ public class AlgorithmArchitecture {
         
     private static void showMenu() {
         while (true) {
-            System.out.println("\n=== MENU ===");
-            System.out.println("1. Sort");
-            System.out.println("2. Search");
-            System.out.println("3. Add Records");
-            System.out.println("4. Create a Binary Tree");
-            System.out.println("5. Exit");
+            int choice = iu.askUserForInt("""
+                                          \n=== MENU ===
+                                          1. Display Employee list
+                                          2. Sort
+                                          3. Search
+                                          4. Add Records
+                                          5. Create a Binary Tree
+                                          6. Exit
+                                          Choose an option: 
+                                          """
+            );
+            MenuOptions option = getUserOption(choice);
             
-            int choice = iu.askUserForInt("Choose an option: ");
-            
-            
-            switch (choice) {
-                case 1:
+            switch (option) {
+                case Display_Employees:
+                    displayEmployees();
+                    break;
+                case Sort_Employee:
                     sortEmployees();
                     break;
-                case 2:
+                case Search_Employee:
                     searchEmployee();
                     break;
-                case 3:
+                case Add_Employee_Records:
                     addRecord();
                     break;
-                case 4:
+                case Create_Binary_Tree:
                     createBinaryTree();
                     break;
-                case 5:
+                case Exit:
                     System.out.println("Exiting... See you next time!");
                     return;
                 default:
@@ -77,6 +83,19 @@ public class AlgorithmArchitecture {
             }
         }
     }
+    
+    private static MenuOptions getUserOption(int userChoice) {
+        return switch (userChoice) {
+            case 1 -> MenuOptions.Display_Employees;
+            case 2 -> MenuOptions.Sort_Employee;
+            case 3 -> MenuOptions.Search_Employee;
+            case 4 -> MenuOptions.Add_Employee_Records;
+            case 5 -> MenuOptions.Create_Binary_Tree;
+            case 6 -> MenuOptions.Exit;
+            default -> null;
+        };
+        
+}
     
     private static void sortEmployees() {
         System.out.println("\n--- Sort Employees ---");
