@@ -33,7 +33,7 @@ public class FileUtils {
             return cachedEmployees;
         }
         
-        System.out.println("Reading file...");
+        System.out.println("Reading file: " + filename);
         cachedEmployees = new ArrayList<>();
         
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
