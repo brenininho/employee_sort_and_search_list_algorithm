@@ -22,3 +22,28 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Ignore NetBeans build artifacts
+/build/
+/dist/
+
+# Ignore NetBeans private configuration
+/nbproject/private/
+
+# Ignore build output classes
+*.class
+
+# Ignore private platform info
+/nbproject/platform.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE-specific (optional)
+/nbactions.xml
+/nb-configuration.xml
+
+# NetBeans cache
+/nbproject/genfiles.properties
+/nbproject/project.properties~
