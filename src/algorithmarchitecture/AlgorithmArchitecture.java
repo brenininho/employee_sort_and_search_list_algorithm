@@ -141,10 +141,34 @@ public class AlgorithmArchitecture {
         
     private static void addRecord() {
         System.out.println("\n--- Add Employee Record ---");
-        System.out.println("This feature will be implemented later.");
         
-        // TODO: set isSorted = false after adding
-        // isSorted = false;
+        String firstName = iu.askUserForText("Insert first name");
+        String lastName = iu.askUserForText("Insert last name");
+        String gender = iu.askUserForText("Insert gender");
+        String email = iu.askUserForEmail("Insert email");
+        double salary = iu.askUserForDouble("Insert salary");
+        String department = iu.askUserForText("Insert department");
+        String position = iu.askUserForText("Insert position");
+        String jobTitle = iu.askUserForText("Insert job title");
+        String company = iu.askUserForText("Insert company");
+        
+        Employee emp = new Employee(
+                    firstName, // firstName
+                    lastName, // lastName
+                    gender, // gender
+                    email, // email
+                    salary, // salary
+                    department, // department
+                    position, // position
+                    jobTitle, // jobTitle
+                    company  // company
+                );
+        employees.add(emp);
+        
+        // set isSorted = false after adding
+        isSorted = false;
+        
+        System.out.println("Employee registered: \n" + emp);
     }
     
     private static void createBinaryTree() {

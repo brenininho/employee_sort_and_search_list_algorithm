@@ -35,8 +35,33 @@ public class InputUtils {
         }while (!userInput.matches("[a-zA-Z .,?!\"]+"));
         // at this point the loop guard is FALSE
         
-        return userInput;
+        return userInput;  
+    }
+    
+    /**
+    * simple code to ask user to enter text
+    * do not allow numbers at all
+    * if any numbers entered - display an error and ask again
+    * 
+    * @param prompt the prompt or question to be asked
+    * @return the valid text entered by the user
+    */
+    public String askUserForEmail(String prompt) {
         
+        Scanner myKB = new Scanner(System.in);
+        
+        String userInput;
+        
+        do {
+            //this gets repeated
+            System.out.println(prompt);
+            System.out.println("Please enter a valid email format.");
+            userInput = myKB.nextLine(); //read in 1 line from keyboard
+            
+        }while (!userInput.matches("^[\\w.+-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)+$"));
+        // at this point the loop guard is FALSE
+        
+        return userInput;  
     }
     
     /**
@@ -57,6 +82,37 @@ public class InputUtils {
                 System.out.println(prompt);
                 System.out.println("Please enter numbers only.");
                 userInput = myKB.nextInt(); //this might go wrong
+                valid = true;
+            }
+            catch(Exception e){
+                System.out.println("That was not an number. Please try again.");
+                myKB.nextLine(); //prevents infinite loop
+            }
+            
+        }while (!valid);
+        //input must be valid
+        return userInput;
+        
+    }
+    
+    /**
+     * Ask the user to enter an double value
+     * if not an double - display error and ask again
+     * @param prompt the prompt or question to ask
+     * @return a valid integer entered by user
+     */
+    public double askUserForDouble(String prompt){
+        
+        Scanner myKB = new Scanner(System.in);
+        double userInput=0;
+        boolean valid = false;
+        
+        do{
+            //this gets repeated
+            try{
+                System.out.println(prompt);
+                System.out.println("Please enter numbers only.");
+                userInput = myKB.nextDouble(); //this might go wrong
                 valid = true;
             }
             catch(Exception e){
