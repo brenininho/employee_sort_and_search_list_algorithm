@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package algorithmarchitecture;
+package employeemanagement;
 
 import java.util.ArrayList;
 import model.Employee;
@@ -12,7 +12,7 @@ import utils.*;
  *
  * @author Breno, student number: 2023263
  */
-public class AlgorithmArchitecture {
+public class EmployeeManagementSystem {
 
     private static ArrayList<Employee> employees = null;
     private static boolean isSorted = false;
